@@ -37,3 +37,53 @@
 		3.ifreame
 		4.flash
 		5.jsonp
+
+
+jsonp的运行方式。
+	我们可以通过script标签来将外域中的内容尽可能的转成js代码。
+			
+	script中提前写好的src为同步操作。
+		
+		
+
+
+	var a = 10;
+	function fn(b){
+		console.log(b.age);
+	}
+	
+	</script>
+	<script src="http://192.168.2.22/1.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		b = {age:17};
+		fn(b);
+	
+		document.onclick = function(){
+			console.log(arr);
+		}
+
+
+
+	通过动态创建script，实现按需加载，这种方式为异步操作。
+
+	function fn1(data){
+		console.log(data);
+	}
+	
+	document.onclick = function(){
+		var oS = document.createElement('script');
+		oS.src = 'http://192.168.2.22/1.js';
+		document.getElementsByTagName('head')[0].appendChild(oS);
+	}
+
+
+
+
+
+
+
+
+
+
+
+
