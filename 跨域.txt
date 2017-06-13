@@ -1,15 +1,10 @@
 安全：
 	一切上网的安全问题都基于一种规则（约定），同源策略。
-	
-        同源策略，它是由Netscape提出的一个著名的安全策略。
-		
-			
+	同源策略，它是由Netscape提出的一个著名的安全策略。
 	同源:
 		同:相同
 		源:协议、端口、域名
-			
 		http://www.ruanyifeng.com/blog/2012/05/internet_protocol_suite_part_i.html
-			
 	协议:
 		file:本地
 		http/https(加了安全证书)
@@ -18,15 +13,11 @@
 	端口:(访问某个服务器的入口)
 		服务器默认端口号:80
 		一般设置端口0-177之前
-			
 	域名:
 		给ip的取个别名
 		比如：百度ip 119.75.217.109
-				
 	跨域：
 		只要不同源就跨域（源）。（不同域名，不同协议，不同端口）
-
-
 跨域（源）：
 		不同源就跨域。
 		
@@ -37,22 +28,13 @@
 		3.ifreame
 		4.flash
 		5.jsonp
-
-
 jsonp的运行方式。
 	我们可以通过script标签来将外域中的内容尽可能的转成js代码。
-			
 	script中提前写好的src为同步操作。
-		
-		
-
-
 	var a = 10;
 	function fn(b){
 		console.log(b.age);
 	}
-	
-	</script>
 	<script src="http://192.168.2.22/1.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript">
 		b = {age:17};
@@ -61,11 +43,7 @@ jsonp的运行方式。
 		document.onclick = function(){
 			console.log(arr);
 		}
-
-
-
 	通过动态创建script，实现按需加载，这种方式为异步操作。
-
 	function fn1(data){
 		console.log(data);
 	}
@@ -75,16 +53,11 @@ jsonp的运行方式。
 		oS.src = 'http://192.168.2.22/1.js';
 		document.getElementsByTagName('head')[0].appendChild(oS);
 	}
-
-
 jsonp有缺点：
 	ajax的数据用不了
 	只为get请求
-
-
-	搜索：
+搜索：
 	var oS = null;
-	
 	function fn1(data){
 		ul.innerHTML = '';
 		data.s.forEach(function(e,i){
@@ -93,19 +66,9 @@ jsonp有缺点：
 			ul.appendChild(li);
 		});
 	};	
-	
 	txt.onkeyup = function(){
 		oS = document.createElement('script');
 		oS.src = 'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd='+txt.value+'&sugmode=2&json=1&p=3&sid=1462_21125_18560_22037&req=2&bs=sdff&pbs=sdff&csor=4&pwd=sdff&cb=fn1';
 		document.getElementsByTagName('head')[0].appendChild(oS);
 		document.getElementsByTagName('head')[0].removeChild(oS);
 	}
-
-
-
-
-
-
-
-
-
