@@ -72,3 +72,20 @@ jsonpÓÐÈ±µã£º
 		document.getElementsByTagName('head')[0].appendChild(oS);
 		document.getElementsByTagName('head')[0].removeChild(oS);
 	}
+	$('#txt').keyup(function(){
+		$.ajax({
+			url:'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?&cb=?',
+			data:{
+				wd:$('#txt').val()
+			},
+			dataType:'jsonp',
+			success:function(data){
+				$('#ul').html('');
+				$.each(data.s,(index,ele) => {
+					$('<li>'+ele+'</li>').appendTo($('#ul')).click(function(){
+						window.open('https://www.baidu.com/s?ie=utf-8&f=3&rsv_bp=1&rsv_idx=1&tn=baidu&wd='+ele);
+					});
+				});
+			}
+		})
+	});
